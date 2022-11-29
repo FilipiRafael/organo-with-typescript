@@ -1,10 +1,18 @@
 import './TextField.css';
 
-const TextField = (props) => {
+interface TextFieldProps {
+    aoAlterado: (valor: string) => void,
+    placeholder: string,
+    label: string,
+    valor: string,
+    obrigatorio: boolean
+}
+
+const TextField = (props: TextFieldProps) => {
     const placeholderModificada = `${props.placeholder}...`;
 
-    const aoDigitado = (evento) => {
-        props.aoAlterado(evento.target.value)
+    const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
+        props.aoAlterado(evento.target.value);
     }
 
     return (
