@@ -11,7 +11,7 @@ interface TimeProps {
 
 const Time = ({ corPrimaria, corSecundaria, nome, colaboradores }: TimeProps) => {
     return (
-        (colaboradores.length > 0) && 
+        (colaboradores.length > 0) ?
             <section className="time" style={{ backgroundColor: corSecundaria }}>
                 <h3 style={{ borderColor: corPrimaria }}>{nome}</h3>
                 <div className="colaboradores">
@@ -24,7 +24,7 @@ const Time = ({ corPrimaria, corSecundaria, nome, colaboradores }: TimeProps) =>
                         imagem={colaborador.imagem} 
                     />)}
             </div>
-        </section>
+        </section> : <></>
     )
 }
 
