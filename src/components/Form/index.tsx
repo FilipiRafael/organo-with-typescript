@@ -3,15 +3,21 @@ import './Form.css';
 import TextField from '../TextField';
 import ListaSuspensa from '../ListaSuspensa';
 import Button from '../Button';
+import { IColaborador } from '../../shared/interfaces/IColaborador';
 
-const Form = (props) => {
+interface FormularioProps {
+    aoColaboradorCadastrado: (colaborador: IColaborador) => void,
+    times: string[]
+}
+
+const Form = (props: FormularioProps) => {
 
     const [nome, setNome] = useState('');
     const [cargo, setCargo] = useState('');
     const [imagem, setImagem] = useState('');
     const [time, setTime] = useState('');
 
-    const aoSalvar = (evento) => {
+    const aoSalvar = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
         props.aoColaboradorCadastrado({
             nome,
@@ -19,10 +25,10 @@ const Form = (props) => {
             imagem,
             time
         })
-        // setNome('');
-        // setCargo('');
-        // setImagem('');
-        // setTime('');
+        setNome('');
+        setCargo('');
+        setImagem('');
+        setTime('');
     }
 
     return (
@@ -56,7 +62,9 @@ const Form = (props) => {
                     valor={time}
                     aoAlterado={valor => setTime(valor)}
                 />
-                <Button texto="Criar Card" />
+                <Button>
+                    Criar Card
+                </Button>
             </form>
         </section>
     )

@@ -1,5 +1,6 @@
 export interface IColaborador {
   nome: string,
   cargo: string,
-  imagem: string, 
+  imagem: string,
+  time?: string
 }

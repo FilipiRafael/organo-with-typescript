@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import './Button.css';
 
 interface BotaoProps {
-    children: ReactElement 
+    children: ReactElement | string
 }
 
 const Button = (props: BotaoProps) => {
