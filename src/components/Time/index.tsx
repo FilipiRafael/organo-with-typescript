@@ -22,6 +22,7 @@ const Time = ({ corPrimaria, corSecundaria, nome, colaboradores }: TimeProps) =>
                         nome={colaborador.nome}
                         cargo={colaborador.cargo}
                         imagem={colaborador.imagem} 
+                        data={colaborador.data} 
                     />)}
             </div>
         </section> : <></>
