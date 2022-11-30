@@ -5,10 +5,11 @@ interface TextFieldProps {
     placeholder: string,
     label: string,
     valor: string,
-    obrigatorio?: boolean
+    obrigatorio?: boolean,
+    tipo?: 'text' | 'password' | 'email' | 'number' | 'date'
 }
 
-const TextField = ({ aoAlterado, label, placeholder, valor, obrigatorio = false }: TextFieldProps) => {
+const TextField = ({ aoAlterado, label, placeholder, valor, obrigatorio = false, tipo = 'text' }: TextFieldProps) => {
     const placeholderModificada = `${placeholder}...`;
 
     const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,6 +24,7 @@ const TextField = ({ aoAlterado, label, placeholder, valor, obrigatorio = false 
                 value={valor}
                 required={obrigatorio}
                 placeholder={placeholderModificada}
+                type={tipo}
             />
         </div>
     )
